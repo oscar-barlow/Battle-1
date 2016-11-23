@@ -1,9 +1,19 @@
 require 'sinatra/base'
 
 class Battle < Sinatra::Base
+  enable :sessions
+  configure(:development) { set :session_secret, "secret" }
+
+
   post '/names' do
-    @warrior1 = params[:name1]
-    @warrior2 = params[:name2]
+    session[:warrior1] = params[:name1]
+    session[:warrior2] = params[:name2]
+    redirect '/play'
+  end
+
+  get '/play' do
+    @warrior1 = session["warrior1"]
+    @warrior2 = session["warrior2"]
     erb(:play)
   end
 
