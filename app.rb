@@ -23,14 +23,14 @@ class Battle < Sinatra::Base
   end
 
   get '/attack2' do
-    $player_2.deduct_life
+    $player_1.attack($player_2)
     @attacker = $player_1.name
     @defender = $player_2.name
     erb(:confirmation)
   end
 
   get '/attack1' do
-    $player_1.deduct_life
+    $player_2.attack($player_1)
     @defender = $player_1.name
     @attacker = $player_2.name
     erb(:confirmation)
