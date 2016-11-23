@@ -15,4 +15,12 @@ describe Player do
     expect(player.name).to eq "David"
   end
 
+  it 'should have a hit point attribute' do
+    expect(player.hitpoint).to be_kind_of Numeric
+  end
+
+  it 'should reduce hitpoints by 10' do
+    player.reduce_hitpoint(5)
+    expect(player.hitpoint).to eq 55
+  end
 end
