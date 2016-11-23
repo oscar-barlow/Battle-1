@@ -1,13 +1,10 @@
-<h2><%= @warrior1 %> vs. <%= @warrior2 %> </h2>
-<% if @confirmation1 %>
-<h3><%= @confirmation1 %></h3>
-<% end %>
+<h2><%= @warrior1.name %> vs. <%= @warrior2.name %> </h2>
 
 <ul>
-<li><%= @warrior1 %> health: <%= @warrior1_health %></li>
-<li><%= @warrior2 %> health: <%= @warrior2_health %></li>
+<li><%= @warrior1.name %> health: <%= @warrior1.health %></li>
+<li><%= @warrior2.name %> health: <%= @warrior2.health %></li>
 </ul>
 
 
-<a href="/attack2">Attack <%= @warrior2 %></a>
-<a href="/attack1">Attack <%= @warrior1 %></a>
+<a href="/attack2">Attack <%= @warrior2.name %></a>
+<a href="/attack1">Attack <%= @warrior1.name %></a>
