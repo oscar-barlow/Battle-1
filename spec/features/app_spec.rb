@@ -13,14 +13,14 @@ RSpec.feature "Battle", :type => :feature do
     sign_in_and_play
     click_link("Attack Warrior2")
     click_link("Wanna fight more?")
-    expect(page).to have_text("Warrior2 health: 80")
+    expect(page).to have_text("Warrior2 health: 90")
   end
 
   scenario "Warrior 2 can attack warrior 1" do
     sign_in_and_play
     click_link("Attack Warrior1")
     click_link("Wanna fight more?")
-    expect(page).to have_text("Warrior1 health: 80")
+    expect(page).to have_text("Warrior1 health: 90")
   end
 
   scenario "Return a confirmation of Warrior1 attacking Warrior2" do
