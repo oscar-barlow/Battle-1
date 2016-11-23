@@ -23,4 +23,11 @@ describe Player do
     player.reduce_hitpoint(5)
     expect(player.hitpoint).to eq 55
   end
+
+  describe 'Errors' do
+    it 'should raise and error if you reduce points by a negative number' do
+      message = "You can't reduce hitpoints and end up with more hitpoints"
+      expect{ player.reduce_hitpoint(-5) }.to raise_error(RuntimeError, message)
+    end
+  end
 end

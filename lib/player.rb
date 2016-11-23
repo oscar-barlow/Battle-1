@@ -15,6 +15,7 @@ end
   end
 
   def reduce_hitpoint(number)
+    raise "You can't reduce hitpoints and end up with more hitpoints" if number < 0
     @hitpoint -= number
   end
 end
