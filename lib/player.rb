@@ -2,17 +2,20 @@ class Player
   attr_reader :name
   attr_accessor :health
 
-  def initialize(name)
+  DEFAULT_HEALTH = 100
+  DEFAULT_DAMAGE = 10
+
+  def initialize(name, health = DEFAULT_HEALTH)
     @name = name
-    @health = 100
+    @health = health
   end
 
-  def received_damage(life = 10)
+  def receive_damage(life = DEFAULT_DAMAGE)
     @health -= life
   end
 
   def attack(player)
-    player.health -= 10
+    player.receive_damage
   end
 
 end
