@@ -24,9 +24,14 @@ class Battle < Sinatra::Base
   end
 
   get '/attack2' do
-    session[:confirmation1] = "#{session[:warrior1]} attacked #{session[:warrior2]}"
     session[:life2] = session[:life2] - 20
-    redirect '/play'
+    redirect '/confirmation1'
+  end
+
+  get '/confirmation1' do
+    @warrior1 = session[:warrior1]
+    @warrior2 = session[:warrior2]
+    erb(:confirmation)
   end
 
   get '/' do

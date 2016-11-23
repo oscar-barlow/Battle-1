@@ -12,6 +12,7 @@ RSpec.feature "Battle", :type => :feature do
   scenario "Warrior 1 can attack warrior 2" do
     sign_in_and_play
     click_link("Attack Warrior2")
+    click_link("Wanna fight more?")
     expect(page).to have_text("Warrior2 Hit Points: 80")
   end
 
