@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -6,18 +7,16 @@ class Battle < Sinatra::Base
 
 
   post '/names' do
-    session[:warrior1] = params[:name1]
-    session[:warrior2] = params[:name2]
+    $player_1 = Player.new(params[:name1])
+    $player_2 = Player.new(params[:name2])
     session[:health1] = 100
     session[:health2] = 100
-    session[:confirmation1] = nil
     redirect '/play'
   end
 
   get '/play' do
-    @confirmation1 = session[:confirmation1]
-    @warrior1 = session[:warrior1]
-    @warrior2 = session[:warrior2]
+    @warrior1 = $player_1.name
+    @warrior2 = $player_2.name
     @warrior1_point = session[:health1]
     @warrior2_point = session[:health2]
     erb(:play)
@@ -25,19 +24,17 @@ class Battle < Sinatra::Base
 
   get '/attack2' do
     session[:health2] = session[:health2] - 20
-    @attacker = session[:warrior1]
-    @defender = session[:warrior2]
+    @attacker = $player_1.name
+    @defender = $player_2.name
     erb(:confirmation)
   end
 
   get '/attack1' do
     session[:health1] = session[:health1] - 20
-    @defender = session[:warrior1]
-    @attacker = session[:warrior2]
+    @defender = $player_1.name
+    @attacker = $player_2.name
     erb(:confirmation)
   end
-
-
 
   get '/' do
     erb(:index)

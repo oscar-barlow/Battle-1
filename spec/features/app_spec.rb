@@ -28,4 +28,10 @@ RSpec.feature "Battle", :type => :feature do
     click_link("Attack Warrior2")
     expect(page).to have_text("Warrior1 attacked Warrior2")
   end
+
+  scenario "Return a confirmation of Warrior2 attacking Warrior1" do
+    sign_in_and_play
+    click_link("Attack Warrior1")
+    expect(page).to have_text("Warrior2 attacked Warrior1")
+  end
 end
