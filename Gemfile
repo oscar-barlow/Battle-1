@@ -2,5 +2,7 @@
 source "https://rubygems.org"
 
 gem "sinatra"
-gem "capybara"
 gem "rspec-sinatra"
+gem "capybara"
+gem "rspec-core"
+gem "rspec"
