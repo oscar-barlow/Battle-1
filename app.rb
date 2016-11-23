@@ -8,8 +8,8 @@ class Battle < Sinatra::Base
   post '/names' do
     session[:warrior1] = params[:name1]
     session[:warrior2] = params[:name2]
-    session[:life1] = 100
-    session[:life2] = 100
+    session[:health1] = 100
+    session[:health2] = 100
     session[:confirmation1] = nil
     redirect '/play'
   end
@@ -18,21 +18,26 @@ class Battle < Sinatra::Base
     @confirmation1 = session[:confirmation1]
     @warrior1 = session[:warrior1]
     @warrior2 = session[:warrior2]
-    @warrior1_point = session[:life1]
-    @warrior2_point = session[:life2]
+    @warrior1_point = session[:health1]
+    @warrior2_point = session[:health2]
     erb(:play)
   end
 
   get '/attack2' do
-    session[:life2] = session[:life2] - 20
-    redirect '/confirmation1'
-  end
-
-  get '/confirmation1' do
-    @warrior1 = session[:warrior1]
-    @warrior2 = session[:warrior2]
+    session[:health2] = session[:health2] - 20
+    @attacker = session[:warrior1]
+    @defender = session[:warrior2]
     erb(:confirmation)
   end
+
+  get '/attack1' do
+    session[:health1] = session[:health1] - 20
+    @defender = session[:warrior1]
+    @attacker = session[:warrior2]
+    erb(:confirmation)
+  end
+
+
 
   get '/' do
     erb(:index)
