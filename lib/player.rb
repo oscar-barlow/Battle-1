@@ -14,6 +14,10 @@ end
     @name
   end
 
+  def attack(player)
+    player.reduce_hitpoint(10)
+  end
+
   def reduce_hitpoint(number)
     raise "You can't reduce hitpoints and end up with more hitpoints" if number < 0
     @hitpoint -= number

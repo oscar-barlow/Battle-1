@@ -4,6 +4,7 @@ describe Player do
 
   let(:player) {described_class.new}
 
+  describe '#name' do
   it 'stores a name' do
     player.name=("Johnny")
     expect(player.name).to eq "Johnny"
@@ -14,15 +15,25 @@ describe Player do
     player.name=("David")
     expect(player.name).to eq "David"
   end
+end
 
+describe '#hitpoint' do
   it 'should have a hit point attribute' do
     expect(player.hitpoint).to be_kind_of Numeric
   end
 
-  it 'should reduce hitpoints by 10' do
+  it 'should reduce hitpoints' do
     player.reduce_hitpoint(5)
     expect(player.hitpoint).to eq 55
   end
+end
+
+describe '#attack' do
+  it "should reduce another player's hitpoints by 10 when you attack them" do
+    another_player = Player.new
+    expect{ player.attack(another_player) }.to change{ another_player.hitpoint }.by(-10)
+  end
+end
 
   describe 'Errors' do
     it 'should raise and error if you reduce points by a negative number' do
