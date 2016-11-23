@@ -1,9 +1,11 @@
+# manages hitpoints
+
 class Player
 
-attr_reader :hitpoint
+attr_reader :hitpoints
 
 def initialize
-  @hitpoint = 60
+  @hitpoints = 60
 end
 
   def name=(string)
@@ -15,11 +17,11 @@ end
   end
 
   def attack(player)
-    player.reduce_hitpoint(10)
+    player.reduce_hitpoints(10)
   end
 
-  def reduce_hitpoint(number)
+  def reduce_hitpoints(number)
     raise "You can't reduce hitpoints and end up with more hitpoints" if number < 0
-    @hitpoint -= number
+    @hitpoints -= number
   end
 end

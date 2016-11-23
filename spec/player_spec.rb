@@ -17,28 +17,28 @@ describe Player do
   end
 end
 
-describe '#hitpoint' do
+describe '#hitpoints' do
   it 'should have a hit point attribute' do
-    expect(player.hitpoint).to be_kind_of Numeric
+    expect(player.hitpoints).to be_kind_of Numeric
   end
 
   it 'should reduce hitpoints' do
-    player.reduce_hitpoint(5)
-    expect(player.hitpoint).to eq 55
+    player.reduce_hitpoints(5)
+    expect(player.hitpoints).to eq 55
   end
 end
 
 describe '#attack' do
   it "should reduce another player's hitpoints by 10 when you attack them" do
     another_player = Player.new
-    expect{ player.attack(another_player) }.to change{ another_player.hitpoint }.by(-10)
+    expect{ player.attack(another_player) }.to change{ another_player.hitpoints }.by(-10)
   end
 end
 
   describe 'Errors' do
     it 'should raise and error if you reduce points by a negative number' do
       message = "You can't reduce hitpoints and end up with more hitpoints"
-      expect{ player.reduce_hitpoint(-5) }.to raise_error(RuntimeError, message)
+      expect{ player.reduce_hitpoints(-5) }.to raise_error(RuntimeError, message)
     end
   end
 end

@@ -4,7 +4,7 @@
 </head>
 <body>
   <h1>Let battle commence</h1>
-  <p><%= @player_1.name %> vs <%= @player_2.name %> (hit points: <%= @player_2.hitpoint %>)</p>
+  <p><%= @player_1.name %> vs <%= @player_2.name %> (hit points: <%= @player_2.hitpoints %>)</p>
   <form action= '/attack' method= 'get'>
     <input type= 'submit' value= 'Attack <%= @player_2.name %>'/>
   </form>
