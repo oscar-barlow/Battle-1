@@ -13,6 +13,8 @@ class Game
   end
 
   def active_player
+    fail "Cannot have two active players" if both_players_active?
+    fail "Cannot have two inactive players" if both_players_inactive?
     @player1.check_active ? @player1 : @player2
   end
 
@@ -21,6 +23,14 @@ class Game
   def switch_active_player
     @player1.switch_active
     @player2.switch_active
+  end
+
+  def both_players_active?
+    @player1.check_active && @player2.check_active
+  end
+
+  def both_players_inactive?
+    !@player1.check_active && !@player2.check_active
   end
 
 end
