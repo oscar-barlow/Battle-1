@@ -6,10 +6,10 @@ class Player
   DEFAULT_HEALTH = 100
   DEFAULT_DAMAGE = 10
 
-  def initialize(name, health = DEFAULT_HEALTH)
+  def initialize(name, health = DEFAULT_HEALTH, active=false)
     @name = name
     @health = health
-    @active = false
+    @active = active
   end
 
   def receive_damage(life = DEFAULT_DAMAGE)

@@ -16,4 +16,8 @@ class Game
     @player2.switch_active
   end
 
+  def player1_active?
+    @player1.check_active
+  end
+
 end

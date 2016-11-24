@@ -9,11 +9,11 @@ describe Game do
 
   describe '#initialize' do
 
-    it "should have a player in player 1 slot upon initialization" do
+    it "should have a player in player 1 slot" do
       expect(game.player1).not_to be_nil
     end
 
-    it "should have a player in player 2 slot upon initialization" do
+    it "should have a player in player 2 slot" do
       expect(game.player2).not_to be_nil
     end
 
@@ -39,6 +39,15 @@ describe Game do
       game.switch_active_player
       expect(player1).to have_received(:switch_active)
       expect(player2).to have_received(:switch_active)
+    end
+
+  end
+
+  describe '#player1_active?' do
+
+    it 'should check the active status of player1' do
+      game.player1_active?
+      expect(game.player1).to have_received(:check_active)
     end
 
   end
