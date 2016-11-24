@@ -3,8 +3,9 @@ require 'player'
 
 describe Game do
 
-  let(:player1) { spy :player1 }
-  let(:player2) { spy :player2 }
+  let(:player1) { spy :player1, :check_active => true }
+  let(:player2) { spy :player2, :check_active => false }
+
   subject(:game) {described_class.new(player1, player2)}
 
   describe '#initialize' do
@@ -33,6 +34,14 @@ describe Game do
     it "should allow player 2 to attack player 1" do
       game.attack(player1)
       expect(player1).to have_received(:receive_damage)
+    end
+
+  end
+
+  describe "#active_player" do
+
+    it 'should return the currently active player' do
+      expect(game.active_player).to eq player1
     end
 
   end

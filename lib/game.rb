@@ -12,6 +12,10 @@ class Game
     player.receive_damage
   end
 
+  def active_player
+    @player1.check_active ? @player1 : @player2
+  end
+
   private
 
   def switch_active_player

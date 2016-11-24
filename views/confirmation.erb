@@ -1,5 +1,7 @@
 <h3><%= @attacker.name %> attacked <%= @defender.name %></h3>
 
-<form action="/play" type="get">
-  <input type="submit" value="Wanna fight more?" />
+<p><%= @defender.name %> health: <%= @defender.health %></p>
+
+<form action="/end_turn" type="get">
+  <input type="submit" value="End <%= @attacker.name %>'s turn" />
 </form>
