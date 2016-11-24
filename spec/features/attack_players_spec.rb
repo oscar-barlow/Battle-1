@@ -1,13 +1,4 @@
-RSpec.feature "Battle", :type => :feature do
-  scenario "User creates a new battle profile" do
-    sign_in_and_play
-    expect(page).to have_text("Warrior1 vs. Warrior2")
-  end
-
-  scenario "Warrior 1 can see Warrior 2's health" do
-    sign_in_and_play
-    expect(page).to have_text("Warrior2 health: 100")
-  end
+RSpec.feature "Attack Players", :type => :feature do
 
   scenario "Warrior 1 can attack warrior 2" do
     sign_in_and_play
@@ -34,4 +25,5 @@ RSpec.feature "Battle", :type => :feature do
     click_button("Attack Warrior1")
     expect(page).to have_text("Warrior2 attacked Warrior1")
   end
+
 end
