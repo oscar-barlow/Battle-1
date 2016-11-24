@@ -5,7 +5,7 @@ describe Game do
 
   let(:player1) { spy :player1 }
   let(:player2) { spy :player2 }
-  subject(:game) {described_class.new(player1, player2)}
+  subject(:game) {described_class.new(Player, player1, player2)}
 
   it "should have a player in player 1 slot upon initialization" do
     expect(game.player1).not_to be_nil
