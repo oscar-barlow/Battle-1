@@ -20,12 +20,12 @@ class Player
     player.receive_damage
   end
 
-  def set_active
-    @active = true
+  def switch_active
+    check_active ? @active = false : @active = true
   end
 
-  def set_inactive
-    @active = false
+  def check_active
+    @active
   end
 
 end

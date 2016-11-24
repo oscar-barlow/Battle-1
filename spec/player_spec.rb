@@ -32,17 +32,17 @@ describe Player do
 
   describe "set player as (in)active" do
 
-    it 'sets the player as active' do
-      player.set_active
+    it 'sets an inactive player to active' do
+      player.switch_active
       expect(player.active).to be true
     end
 
-    it 'sets the player as inactive' do
-      player.set_active
-      player.set_inactive
+    it 'sets an active player to inactive' do
+      player.switch_active
+      player.switch_active
       expect(player.active).to be false
     end
 
-
   end
+
 end
