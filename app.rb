@@ -17,7 +17,8 @@ class Battle < Sinatra::Base
   get '/play' do
     @warrior1 = $game.player1
     @warrior2 = $game.player2
-    @active_player = $game.active_player.name
+    @active_player = $game.active_player
+    @inactive_player = $game.inactive_player
     erb(:play)
   end
 
@@ -26,19 +27,19 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-  get '/attack2' do
+  get '/attack' do
     @attacker = $game.player1
     @defender = $game.player2
-    $game.attack($game.player2)
+    $game.attack($game.inactive_player)
     erb(:confirmation)
   end
 
-  get '/attack1' do
-    @attacker = $game.player2
-    @defender = $game.player1
-    $game.attack($game.player1)
-    erb(:confirmation)
-  end
+  # get '/attack1' do
+  #   @attacker = $game.player2
+  #   @defender = $game.player1
+  #   $game.attack($game.player1)
+  #   erb(:confirmation)
+  # end
 
   get '/' do
     erb(:index)
