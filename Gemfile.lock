@@ -28,8 +28,21 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
+    rspec-support (3.5.0)
     rubyzip (1.2.0)
     selenium-webdriver (3.0.1)
       childprocess (~> 0.5)
@@ -55,6 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  rspec
   rspec-sinatra
   selenium-webdriver
   shotgun
