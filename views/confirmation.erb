@@ -1,3 +1,5 @@
 <h3><%= @attacker.name %> attacked <%= @defender.name %></h3>
 
-<a href="/play">Wanna fight more?</a>
+<form action="/play" type="get">
+  <input type="submit" value="Wanna fight more?" />
+</form>
