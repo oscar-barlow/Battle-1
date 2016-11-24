@@ -17,6 +17,7 @@ class Battle < Sinatra::Base
   get '/play' do
     @warrior1 = $game.player1
     @warrior2 = $game.player2
+    @active_player = $game.active_player.name
     erb(:play)
   end
 

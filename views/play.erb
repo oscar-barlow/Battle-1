@@ -1,15 +1,19 @@
 <h2><%= @warrior1.name %> vs. <%= @warrior2.name %> </h2>
 
-<h3>Warrior1's turn</h3>
+<h3><%= @active_player %>'s turn</h3>
 
 <ul>
 <li><%= @warrior1.name %> health: <%= @warrior1.health %></li>
 <li><%= @warrior2.name %> health: <%= @warrior2.health %></li>
 </ul>
 
+<!-- attack inactive player -->
+
 <form action="/attack2" method="get">
   <input type="submit" value="Attack <%= @warrior2.name %>" />
 </form>
+
+<!-- get rid of the below -->
 
 <form action="/attack1" method="get">
   <input type="submit" value="Attack <%= @warrior1.name %>" />

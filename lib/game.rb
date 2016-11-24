@@ -18,12 +18,12 @@ class Game
     @player1.check_active ? @player1 : @player2
   end
 
-  private
-
   def switch_active_player
     @player1.switch_active
     @player2.switch_active
   end
+
+  private
 
   def both_players_active?
     @player1.check_active && @player2.check_active
