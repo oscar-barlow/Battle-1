@@ -1,6 +1,6 @@
 RSpec.feature "Lose the game", :type => :feature do
 
-  scenario 'Lose game on 0 HP' do
+  scenario 'Warrior2 loses the game on 0 HP' do
     sign_in_and_play
     9.times {warriors_attack_eachother}
     click_button("Attack Warrior2")
