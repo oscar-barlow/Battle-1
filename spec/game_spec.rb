@@ -46,19 +46,47 @@ describe Game do
 
   end
 
+  describe '#inactive_player' do
+
+    it 'returns the currently inactive player' do
+      expect(game.inactive_player).to eq player2
+    end
+
+  end
+
 
   describe "Error handling" do
 
-    it 'raises an exception when both players are active' do
-      message = "Cannot have two active players"
-      allow(player2).to receive(:check_active).and_return(true)
-      expect{ game.active_player }.to raise_error(RuntimeError, message)
+    describe 'when calling #active_player' do
+
+      it 'raises an exception when both players are active' do
+        message = "Cannot have two active players"
+        allow(player2).to receive(:check_active).and_return(true)
+        expect{ game.active_player }.to raise_error(RuntimeError, message)
+      end
+
+      it 'raises an exception when both players are inactive' do
+        message = "Cannot have two inactive players"
+        allow(player1).to receive(:check_active).and_return(false)
+        expect{ game.active_player }.to raise_error(RuntimeError, message)
+      end
+
     end
 
-    it 'raises an exception when both players are inactive' do
-      message = "Cannot have two inactive players"
-      allow(player1).to receive(:check_active).and_return(false)
-      expect{ game.active_player }.to raise_error(RuntimeError, message)
+    describe 'when calling #inactive_player' do
+
+      it 'raises an exception when both players are active' do
+        message = "Cannot have two active players"
+        allow(player2).to receive(:check_active).and_return(true)
+        expect{ game.inactive_player }.to raise_error(RuntimeError, message)
+      end
+
+      it 'raises an exception when both players are inactive' do
+        message = "Cannot have two inactive players"
+        allow(player1).to receive(:check_active).and_return(false)
+        expect{ game.inactive_player }.to raise_error(RuntimeError, message)
+      end
+
     end
 
   end

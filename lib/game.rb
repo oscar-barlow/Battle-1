@@ -19,6 +19,8 @@ class Game
   end
 
   def inactive_player
+    fail "Cannot have two active players" if both_players_active?
+    fail "Cannot have two inactive players" if both_players_inactive?
     @player1.check_active ? @player2 : @player1
   end
 
