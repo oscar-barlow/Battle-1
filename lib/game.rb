@@ -30,7 +30,7 @@ class Game
   end
 
   def is_battle_over?
-    self.player1.is_dead?
+    self.player1.is_dead? || self.player2.is_dead?
   end
 
   private

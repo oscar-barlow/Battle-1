@@ -56,14 +56,28 @@ describe Game do
 
   describe '#is_battle_over?' do
 
-    it 'returns true if player1 is dead' do
+    it 'returns true if player1 is dead and player 2 is alive' do
       allow(player1).to receive(:is_dead?).and_return(true)
+      allow(player2).to receive(:is_dead?).and_return(false)
       expect(game.is_battle_over?).to be true
     end
 
-    it 'returns false if player1 is not dead' do
+    it 'returns true if player2 is dead and player1 is alive' do
       allow(player1).to receive(:is_dead?).and_return(false)
+      allow(player2).to receive(:is_dead?).and_return(true)
+      expect(game.is_battle_over?).to be true
+    end
+
+    it 'returns false if neither player1 nor player 2 are dead' do
+      allow(player1).to receive(:is_dead?).and_return(false)
+      allow(player2).to receive(:is_dead?).and_return(false)
       expect(game.is_battle_over?).to be false
+    end
+
+    it 'returns true if both players are dead' do
+      allow(player1).to receive(:is_dead?).and_return(true)
+      allow(player2).to receive(:is_dead?).and_return(true)
+      expect(game.is_battle_over?).to be true
     end
 
   end
