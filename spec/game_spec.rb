@@ -5,8 +5,27 @@ describe Game do
 
   let(:player1) { spy :player1, :check_active => true }
   let(:player2) { spy :player2, :check_active => false }
+  let(:game_klass) { spy :game_klass }
 
   subject(:game) {described_class.new(player1, player2)}
+
+  describe '#self.create' do
+
+    it 'initializes a game object' do
+      Game.create(game_klass, player1, player2)
+      expect(game_klass).to have_received(:new).with(player1, player2)
+    end
+
+  end
+
+  describe '#self.instance' do
+
+    it 'stores an instance of Game' do
+      Game.create(game_klass, player1, player2)
+      expect(Game.instance).to eq game_klass
+    end
+
+  end
 
   describe '#initialize' do
 
@@ -101,6 +120,7 @@ describe Game do
 
     end
 
+
     describe 'when calling #inactive_player' do
 
       it 'raises an exception when both players are active' do
@@ -112,7 +132,7 @@ describe Game do
       it 'raises an exception when both players are inactive' do
         message = "Cannot have two inactive players"
         allow(player1).to receive(:check_active).and_return(false)
-        expect{ game.inactive_player }.to raise_error(RuntimeError, message)
+        expect{ game.inactive_player }.to raise_error(message)
       end
 
     end
