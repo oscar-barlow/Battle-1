@@ -28,4 +28,8 @@ class Player
     @active
   end
 
+  def is_dead?
+    self.health <= 0 ? true : false
+  end
+
 end

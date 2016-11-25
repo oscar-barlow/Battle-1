@@ -54,6 +54,20 @@ describe Game do
 
   end
 
+  describe '#is_battle_over?' do
+
+    it 'returns true if player1 is dead' do
+      allow(player1).to receive(:is_dead?).and_return(true)
+      expect(game.is_battle_over?).to be true
+    end
+
+    it 'returns false if player1 is not dead' do
+      allow(player1).to receive(:is_dead?).and_return(false)
+      expect(game.is_battle_over?).to be false
+    end
+
+  end
+
 
   describe "Error handling" do
 

@@ -29,6 +29,10 @@ class Game
     @player2.switch_active
   end
 
+  def is_battle_over?
+    self.player1.is_dead?
+  end
+
   private
 
   def both_players_active?

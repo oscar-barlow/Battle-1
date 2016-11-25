@@ -45,4 +45,17 @@ describe Player do
 
   end
 
+  describe "When dying" do
+
+    it 'expects is_dead? to be true if health is 0' do
+      player.receive_damage(100)
+      expect(player.is_dead?).to be true
+    end
+
+    it 'expects is_dead? to be false if health is not 0' do
+      expect(player.is_dead?).to be false
+    end
+
+  end
+
 end
