@@ -28,18 +28,11 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @attacker = $game.player1
-    @defender = $game.player2
+    @attacker = $game.active_player
+    @defender = $game.inactive_player
     $game.attack($game.inactive_player)
     erb(:confirmation)
   end
-
-  # get '/attack1' do
-  #   @attacker = $game.player2
-  #   @defender = $game.player1
-  #   $game.attack($game.player1)
-  #   erb(:confirmation)
-  # end
 
   get '/' do
     erb(:index)
