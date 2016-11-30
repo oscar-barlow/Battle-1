@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "2.3.3"
 
 gem "rspec-sinatra"
 gem "sinatra"
@@ -7,3 +8,4 @@ gem "selenium-webdriver"
 gem "shotgun"
 gem "rspec"
 gem "pry"
+gem "byebug"

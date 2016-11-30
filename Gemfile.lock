@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    byebug (9.0.6)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
@@ -74,6 +75,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   capybara
   pry
   rspec
@@ -81,6 +83,9 @@ DEPENDENCIES
   selenium-webdriver
   shotgun
   sinatra
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.13.6
